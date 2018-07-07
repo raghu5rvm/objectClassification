@@ -48,8 +48,8 @@ train_dataGeneration = ImageDataGenerator(rescale=1.0/255,shear_range=0.2,zoom_r
 train_dataGeneration = ImageDataGenerator(rescale=1.0/255)
 
 #get data
-train_data = train_dataGeneration.flow_from_directory('/home/raghu/Desktop/assign2/code/dataSets/train/',target_size=img_dim, batch_size = batch_size,class_mode='categorical')
-test_data = train_dataGeneration.flow_from_directory('/home/raghu/Desktop/assign2/code/dataSets/test/',target_size=img_dim,batch_size = batch_size,class_mode='categorical')
+train_data = train_dataGeneration.flow_from_directory('dataSets/train/',target_size=img_dim, batch_size = batch_size,class_mode='categorical')
+test_data = train_dataGeneration.flow_from_directory('dataSets/test/',target_size=img_dim,batch_size = batch_size,class_mode='categorical')
 
 #training
 classifier.fit_generator( train_data,steps_per_epoch = num_of_train_samples // batch_size, epochs = 15, validation_data=test_data,validation_steps=num_of_test_samples // batch_size)
